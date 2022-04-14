@@ -108,6 +108,19 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(K5 = createhitbox(sizex * 4, "K5")));
                 hitbox.add(add(K6 = createhitbox(sizex * 5, "K6"))); 
             } 
+            case FIVE:
+            {
+                hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox5k_hint.png');
+
+                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitbox5k.png', 'assets/shared/images/hitbox/hitbox5k.xml');
+                sizex = 256;
+                
+                hitbox.add(add(K1 = createhitbox(0, "K1"))); 
+                hitbox.add(add(K2 = createhitbox(sizex, "K2")));
+                hitbox.add(add(K3 = createhitbox(sizex * 2, "K3"))); 
+                hitbox.add(add(K4 = createhitbox(sizex * 3, "K4")));
+                hitbox.add(add(K5 = createhitbox(sizex * 4, "K5"))); 
+            }
             case DEFAULT:
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox_hint.png');
@@ -173,6 +186,7 @@ class Hitbox extends FlxSpriteGroup
 
 enum HitboxType {
     DEFAULT;
+    FIVE;
     SIX;
     SEVEN;
     NINE;
