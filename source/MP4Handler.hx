@@ -15,7 +15,9 @@ class MP4Handler
 	public var finishCallback:Void->Void;
 	public var stateCallback:FlxState;
 
+        #if desktop
 	public var bitmap:VlcBitmap;
+        #end
 
 	public var sprite:FlxSprite;
 
