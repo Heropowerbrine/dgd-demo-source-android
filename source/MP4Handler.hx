@@ -161,6 +161,6 @@ class MP4Handler
 
 		if (FlxG.sound.volume <= 0.1)
 			bitmap.volume = 0;
-        #end
 	}
+        #end
 }
