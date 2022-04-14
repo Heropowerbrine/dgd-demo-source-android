@@ -11,7 +11,7 @@ import vlc.VlcBitmap;
 // THIS IS FOR TESTING
 // DONT STEAL MY CODE >:(
 class MP4Handler
-{
+{       #if desktop
 	public var finishCallback:Void->Void;
 	public var stateCallback:FlxState;
 
@@ -161,5 +161,6 @@ class MP4Handler
 
 		if (FlxG.sound.volume <= 0.1)
 			bitmap.volume = 0;
+        #end
 	}
 }
