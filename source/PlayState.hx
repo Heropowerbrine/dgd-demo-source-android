@@ -5710,6 +5710,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('exit'));
 					toDfS = 1;
 				case 720:
+                                        #if desktop
 					var video:MP4Handler = new MP4Handler();
 
 					video.playMP4(Paths.video('zoinks'));
@@ -5717,6 +5718,7 @@ class PlayState extends MusicBeatState
 					{
 						endSong();
 					}
+                                        #end
 			}
 			if (cs_time > 220)
 			{
