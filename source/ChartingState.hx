@@ -41,6 +41,7 @@ import openfl.utils.Assets as OpenFlAssets;
 import sys.io.File;
 import sys.FileSystem;
 #end
+import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -129,6 +130,10 @@ class ChartingState extends MusicBeatState
 
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
+	
+	var key_space:FlxButton;
+
+	var _pad:FlxVirtualPad;
 
 	var value1InputText:FlxUIInputText;
 	var value2InputText:FlxUIInputText;
@@ -287,6 +292,16 @@ class ChartingState extends MusicBeatState
 		zoomTxt = new FlxText(10, 10, 0, "Zoom: 1x", 16);
 		zoomTxt.scrollFactor.set();
 		add(zoomTxt);
+		
+		key_space = new FlxButton(60, 60, "");
+        key_space.loadGraphic(Paths.image("key_space")); //"assets/images/key_space.png"
+        key_space.alpha = 0.75;
+        add(key_space);
+
+		_pad = new FlxVirtualPad(FULL, NONE);
+    	_pad.alpha = 0.75;
+    	this.add(_pad);
+		
 		super.create();
 	}
 
@@ -299,6 +314,7 @@ class ChartingState extends MusicBeatState
 	function addSongUI():Void
 	{
 		UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
+		UI_songTitle.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(UI_songTitle);
 		
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
@@ -424,9 +440,11 @@ class ChartingState extends MusicBeatState
 		var skin = PlayState.SONG.arrowSkin;
 		if(skin == null) skin = '';
 		noteSkinInputText = new FlxUIInputText(player2DropDown.x, player2DropDown.y + 50, 150, skin, 8);
+		noteSkinInputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(noteSkinInputText);
 	
 		noteSplashesInputText = new FlxUIInputText(noteSkinInputText.x, noteSkinInputText.y + 35, 150, _song.splashSkin, 8);
+		noteSplashesInputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(noteSplashesInputText);
 
 		var reloadNotesButton:FlxButton = new FlxButton(noteSplashesInputText.x + 5, noteSplashesInputText.y + 20, 'Change Notes', function() {
@@ -598,6 +616,7 @@ class ChartingState extends MusicBeatState
 		stepperSusLength.name = 'note_susLength';
 
 		strumTimeInputText = new FlxUIInputText(10, 65, 180, "0");
+		strumTimeInputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		tab_group_note.add(strumTimeInputText);
 		blockPressWhileTypingOn.push(strumTimeInputText);
 
@@ -650,11 +669,13 @@ class ChartingState extends MusicBeatState
 		var text:FlxText = new FlxText(20, 90, 0, "Value 1:");
 		tab_group_event.add(text);
 		value1InputText = new FlxUIInputText(20, 110, 100, "");
+		value1InputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(value1InputText);
 
 		var text:FlxText = new FlxText(20, 130, 0, "Value 2:");
 		tab_group_event.add(text);
 		value2InputText = new FlxUIInputText(20, 150, 100, "");
+		value2InputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(value2InputText);
 
 		tab_group_event.add(descText);
@@ -1027,7 +1048,13 @@ class ChartingState extends MusicBeatState
 
 		if (!blockInput)
 		{
-			if (FlxG.keys.justPressed.ENTER)
+			#if android
+			var androidback = FlxG.android.justReleased.BACK;
+			#else
+			var androidback = false;
+			#end
+
+			if (FlxG.keys.justPressed.ENTER #if mobileC || androidback #end)
 			{
 				FlxG.mouse.visible = false;
 				PlayState.SONG = _song;
@@ -1082,7 +1109,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 
-			if (FlxG.keys.justPressed.SPACE)
+			if (FlxG.keys.justPressed.SPACE || key_space.justPressed)
 			{
 				if (FlxG.sound.music.playing)
 				{
@@ -1119,48 +1146,55 @@ class ChartingState extends MusicBeatState
 				}
 			}
 
-			if (FlxG.keys.pressed.W || FlxG.keys.pressed.S)
+			if (!FlxG.keys.pressed.SHIFT)
 			{
-				FlxG.sound.music.pause();
-
-				var holdingShift:Float = FlxG.keys.pressed.SHIFT ? 3 : 1;
-				var daTime:Float = 700 * FlxG.elapsed * holdingShift;
-
-				if (FlxG.keys.pressed.W)
+				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S || _pad.buttonUp.pressed || _pad.buttonDown.pressed)
 				{
-					FlxG.sound.music.time -= daTime;
-				}
-				else
-					FlxG.sound.music.time += daTime;
-
-				if(vocals != null) {
+					FlxG.sound.music.pause();
 					vocals.pause();
+
+				        var daTime:Float = 700 * FlxG.elapsed;
+
+				if (FlxG.keys.pressed.W || _pad.buttonUp.pressed)
+					{
+						FlxG.sound.music.time -= daTime;
+					}
+					else
+						FlxG.sound.music.time += daTime;
+
 					vocals.time = FlxG.sound.music.time;
 				}
 			}
+                        else
+			{
+				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S || _pad.buttonUp.pressed || _pad.buttonDown.pressed)
+				{
+					FlxG.sound.music.pause();
+					vocals.pause();
+					
+			                var daTime:Float = Conductor.stepCrochet * 2;
 
-			var shiftThing:Int = 1;
-			if (FlxG.keys.pressed.SHIFT)
-				shiftThing = 4;
+			if (FlxG.keys.justPressed.W || _pad.buttonUp.justPressed)
+					{
+						FlxG.sound.music.time -= daTime;
+					}
+					else
+						FlxG.sound.music.time += daTime;
 
-			if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.D)
-				changeSection(curSection + shiftThing);
-			if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.A) {
-				if(curSection <= 0) {
-					changeSection(_song.notes.length-1);
-				} else {
-					changeSection(curSection - shiftThing);
-				}
-			}
-		} else if (FlxG.keys.justPressed.ENTER) {
-			for (i in 0...blockPressWhileTypingOn.length) {
-				if(blockPressWhileTypingOn[i].hasFocus) {
-					blockPressWhileTypingOn[i].hasFocus = false;
+					vocals.time = FlxG.sound.music.time;
 				}
 			}
 		}
 
 		_song.bpm = tempBpm;
+		
+		var shiftThing:Int = 1;
+		if (FlxG.keys.pressed.SHIFT)
+			shiftThing = 4;
+		if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.D || _pad.buttonRight.justPressed)
+			changeSection(curSection + shiftThing);
+		if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.A || _pad.buttonLeft.justPressed)
+			changeSection(curSection - shiftThing);
 
 		if(FlxG.sound.music.time < 0) {
 			FlxG.sound.music.pause();
