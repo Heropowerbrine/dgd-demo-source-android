@@ -222,6 +222,10 @@ class MASKstate extends MusicBeatState
 		{
 			optList[i] = readOpt[i].split(":");
 		}
+		
+		#if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 
 		super.create();
 	}
@@ -835,16 +839,18 @@ class MASKstate extends MusicBeatState
 		lChar = intChar;
 
 		//Press start to pair bluetooth device is ready to peir
-		if (FlxG.keys.justPressed.ANY)
-		{
-			if (intChar == read.length - 1)
-			{
-				textNext();
-			}
-			else
-			{
-				charInd = read.length - 1;
-			}
+		for (touch in FlxG.touches.list) {
+		    if (touch.justPressed)
+		    {
+			    if (intChar == read.length - 1)
+			    {
+				    textNext();
+			    }
+			    else
+			    {
+				    charInd = read.length - 1;
+			    }
+		    }
 		}
 		#if debug
 		if (FlxG.keys.justPressed.ONE)
