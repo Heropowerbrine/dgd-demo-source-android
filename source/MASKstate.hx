@@ -223,7 +223,7 @@ class MASKstate extends MusicBeatState
 			optList[i] = readOpt[i].split(":");
 		}
 		
-		#if mobileC
+		#if android
         addVirtualPad(UP_DOWN, A_B);
         #end
 
