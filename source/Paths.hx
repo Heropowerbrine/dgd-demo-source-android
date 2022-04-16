@@ -140,7 +140,7 @@ class Paths
 		var imageToReturn:FlxGraphic = addCustomGraphic(key);
 		if(imageToReturn != null) return imageToReturn;
 		#end
-		return (SUtil.getPath() + 'images/$key.png', IMAGE, library);
+		return ('images/$key.png', IMAGE, library);
 	}
 	
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
