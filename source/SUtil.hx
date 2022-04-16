@@ -2,7 +2,7 @@ package;
 
 #if android
 import android.AndroidTools;
-import android.Permissions;
+import android.stuff.Permissions;
 #end
 import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
@@ -11,6 +11,10 @@ import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
 import sys.FileSystem;
+
+/**
+ * author: Saw (M.A. Jigsaw)
+ */
 
 class SUtil
 {
@@ -118,7 +122,7 @@ class SUtil
         Sys.println("Crash dump saved in " + Path.normalize(path));
         Sys.println("Making a simple alert ...");
 
-        SUtil.applicationAlert("Uncaught Error:", errMsg);
+        SUtil.applicationAlert("Uncaught Error, The Call Stack: ", errMsg);
         flash.system.System.exit(0);
     }
 	
@@ -133,7 +137,7 @@ class SUtil
 
         sys.io.File.saveContent(SUtil.getPath() + "system-saves/" + fileName + fileExtension, fileData);
         #if android
-        AndroidTools.makeToast("File Saved Successfully!");
+        SUtil.applicationAlert("Done Action: ", "File Saved Successfully!");
         #end
     }
 }
