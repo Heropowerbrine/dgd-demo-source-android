@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin' Demigod Duel" file="ShaggyMod" packageName="com.jacob.demigodduel" package="com.jacob.demigodduel" main="Main" version="0.2.7" company="ninjamuffin99" />
+	<app title="Friday Night Funkin' Demigod Duel" file="ShaggyMod" packageName="com.jacoborwhatev1.demigodduel" package="com.jacoborwhatev1.demigodduel" main="Main" version="0.2.7" company="ninjamuffin99" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -104,7 +104,7 @@
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
         <haxelib name="extension-videoview" if="android"/>
-        <haxelib name="AndroidTools" if="android"/>
+        <haxelib name="extension-androidtools" if="android"/>
 
         <config:android permission="android.permission.READ_EXTERNAL_STORAGE" if="android"/>
         <config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" if="android"/>
