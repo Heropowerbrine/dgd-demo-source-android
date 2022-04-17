@@ -66,7 +66,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitboxgod_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitboxgod.png', 'assets/shared/images/hitbox/hitboxgod.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitboxgod.png', 'assets/shared/images/hitbox/hitboxgod.xml');
                 sizex = 142;
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
@@ -83,7 +83,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitboxseven_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitboxseven.png', 'assets/shared/images/hitbox/hitboxseven.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitboxseven.png', 'assets/shared/images/hitbox/hitboxseven.xml');
                 sizex = 182;
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
@@ -98,7 +98,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitboxsix_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitboxsix.png', 'assets/shared/images/hitbox/hitboxsix.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitboxsix.png', 'assets/shared/images/hitbox/hitboxsix.xml');
                 sizex = 213;
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
@@ -112,7 +112,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox5k_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitbox5k.png', 'assets/shared/images/hitbox/hitbox5k.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitbox5k.png', 'assets/shared/images/hitbox/hitbox5k.xml');
                 sizex = 256;
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
@@ -125,7 +125,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitbox.png', 'assets/shared/images/hitbox/hitbox.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitbox.png', 'assets/shared/images/hitbox/hitbox.xml');
                 sizex = 320;
 
                 hitbox.add(add(K1 = createhitbox(0, "K1")));
@@ -137,7 +137,7 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox_hint.png');
 
-                frameshb = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitbox.png', 'assets/shared/images/hitbox/hitbox.xml');
+                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitbox.png', 'assets/shared/images/hitbox/hitbox.xml');
                 sizex = 320;
 
                 hitbox.add(add(K1 = createhitbox(0, "K1")));
