@@ -3,7 +3,7 @@
 name: Android Build
 
 # Controls when the action will run. 
-on: [workflow_dispatch, push]
+on: [workflow_dispatch]
 jobs:
   buildAndroid:
     # The type of runner that the job will run on
@@ -57,7 +57,7 @@ jobs:
           haxelib install hscript
           haxelib git polymod https://github.com/MasterEric/polymod.git
           haxelib git linc_luajit https://github.com/jigsaw-4277821/linc_luajit.git
-          haxelib git AndroidTools https://github.com/jigsaw-4277821/AndroidTools.git   
+          haxelib git extension-androidtools https://github.com/jigsaw-4277821/extension-androidtools.git   
           haxelib git extension-videoview https://github.com/jigsaw-4277821/extension-videoview.git --quiet
           haxelib list
           
