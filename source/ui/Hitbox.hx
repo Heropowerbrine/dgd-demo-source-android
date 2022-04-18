@@ -133,18 +133,6 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(K3 = createhitbox(sizex * 2, "K3")));
                 hitbox.add(add(K4 = createhitbox(sizex * 3, "K4")));    
             }
-            default:
-            {
-                hitbox_hint.loadGraphic('assets/shared/images/hitbox/hitbox_hint');
-
-                frameshb = Paths.getSparrowAtlas('assets/shared/images/hitbox/hitbox');
-                sizex = 320;
-
-                hitbox.add(add(K1 = createhitbox(0, "K1")));
-                hitbox.add(add(K2 = createhitbox(sizex, "K2")));
-                hitbox.add(add(K3 = createhitbox(sizex * 2, "K3")));
-                hitbox.add(add(K4 = createhitbox(sizex * 3, "K4")));    
-            }
         }
     }
 
