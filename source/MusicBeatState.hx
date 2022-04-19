@@ -16,6 +16,7 @@ import flixel.FlxState;
 import flixel.FlxCamera;
 import flixel.input.actions.FlxActionInput;
 import ui.FlxVirtualPad;
+import ui.Hitbox;
 #end
 
 class MusicBeatState extends FlxUIState
@@ -53,6 +54,37 @@ class MusicBeatState extends FlxUIState
 		#end
 	}
 
+	#if android
+	public function addHitbox(mania:Int) {               
+		var curhitbox:HitboxType = DEFAULT;
+
+		switch (mania){
+			case 0:
+				curhitbox = SIX;
+			case 1:
+				curhitbox = SEVEN;
+			case 2:
+				curhitbox = NINE;					
+			case 3:
+				curhitbox = DEFAULT;	
+			case 4:
+				curhitbox = FIVE;								
+			default:
+				curhitbox = DEFAULT;
+		}
+
+		_hitbox = new Hitbox(curhitbox);
+
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_hitbox.cameras = [camcontrol];
+
+		_hitbox.visible = false;
+		add(_hitbox);
+	}
+	#end
+	
 	override function destroy() {
 		controls.removeFlxInput(trackedinputs);
 
