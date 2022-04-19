@@ -992,35 +992,8 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		
-		var curcontrol:HitboxType = DEFAULT;
-
-		switch (mania){
-			case 1:
-				curcontrol = FIVE;
-			case 2:
-				curcontrol = SIX;
-			case 3:
-				curcontrol = SEVEN;
-			case 4:
-				curcontrol = NINE;
-			default:
-				curcontrol = DEFAULT;
-		}
-		_hitbox = new Hitbox(curcontrol);
-                controls.setHitBox(_hitbox, curcontrol);
-
-		trackedinputs = controls.trackedinputs;
-		controls.trackedinputs = [];
-
-		var camcontrol = new FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		_hitbox.cameras = [camcontrol];
-
-		_hitbox.visible = false;
-
-		add(_hitbox);
-
+		addHitbox(mania);
+				
 		if (SONG.song.toLowerCase() == 'god-eater') {
 		    addVirtualPad(UP_DOWN, NONE);
 		    _virtualpad.visible = false;
