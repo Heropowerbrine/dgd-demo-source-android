@@ -61,15 +61,15 @@ class MusicBeatState extends FlxUIState
 
 		switch (mania){
 			case 0:
-				curhitbox = SIX;
+				curhitbox = DEFAULT;
 			case 1:
-				curhitbox = SEVEN;
+				curhitbox = FIVE;
 			case 2:
-				curhitbox = NINE;					
+				curhitbox = SIX;					
 			case 3:
-				curhitbox = DEFAULT;	
+				curhitbox = SEVEN;	
 			case 4:
-				curhitbox = FIVE;								
+				curhitbox = NINE;								
 			default:
 				curhitbox = DEFAULT;
 		}
