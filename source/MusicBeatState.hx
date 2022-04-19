@@ -55,7 +55,8 @@ class MusicBeatState extends FlxUIState
 	}
 
 	#if android
-	public function addHitbox(mania:Int) {               
+	public function addHitbox(mania:Int) {
+		var _hitbox:Hitbox;
 		var curhitbox:HitboxType = DEFAULT;
 
 		switch (mania){
