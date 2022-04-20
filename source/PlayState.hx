@@ -1635,7 +1635,7 @@ class PlayState extends MusicBeatState
 	public function startCountdown():Void
 	{
 		_hitbox.visible = true;
-		}
+		
 		if(startedCountdown) {
 			return;
 		}
