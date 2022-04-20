@@ -170,7 +170,7 @@ class FreeplayState extends MusicBeatState
 		textBG.alpha = 0.6;
 		add(textBG);
 		#if PRELOAD_ALL
-		var leText:String = "Press Y to listen to this Song / Press X to Reset your Score and Accuracy.";
+		var leText:String = "Press Y to listen to this Song";
 		#else
 		var leText:String = "Press X to Reset your Score and Accuracy.";
 		#end
@@ -179,7 +179,7 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 	        #if android
-	        addVirtualPad(FULL, A_B_X_Y);
+	        addVirtualPad(FULL, A_B_Y);
                 #end
 		super.create();
 	}
