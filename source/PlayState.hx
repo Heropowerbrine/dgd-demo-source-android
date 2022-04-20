@@ -5770,7 +5770,7 @@ class PlayState extends MusicBeatState
 		                        bg.scrollFactor.set();
 		                        bg.cameras = [camHUD];
 		                        add(bg);
-		                        new MP4Handler(Paths.video('zoinks')).finishCallback = function()
+		                        new FlxVideo(Paths.video('zoinks')).finishCallback = function()
 					{
 					        endSong();
 			                }
