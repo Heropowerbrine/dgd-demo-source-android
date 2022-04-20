@@ -68,7 +68,7 @@ class MusicBeatState extends FlxUIState
 				curhitbox = SIX;					
 			case 3:
 				curhitbox = SEVEN;	
-			case 4:
+			case 5:
 				curhitbox = NINE;								
 			default:
 				curhitbox = DEFAULT;
