@@ -54,9 +54,7 @@ class Hitbox extends FlxSpriteGroup
         K8 = new FlxButton(0, 0);
         K9 = new FlxButton(0, 0);
 
-        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
-        hitbox_hint.alpha = 0.75;
-        add(hitbox_hint);
+        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);   
 
         switch (type) 
         {
@@ -113,6 +111,8 @@ class Hitbox extends FlxSpriteGroup
                 hitbox.add(add(K4 = createhitbox(960, "K4")));    
         }
         array = [K1, K2, K3, K4, K5, K6, K7, K8, K9];
+        hitbox_hint.alpha = 0.75;
+        add(hitbox_hint);
     }
 
     public function createhitbox(X:Float, framestring:String) {
