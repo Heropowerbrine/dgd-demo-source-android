@@ -24,9 +24,6 @@ class Hitbox extends FlxSpriteGroup
     
     public var array:Array<FlxButton> = [];
 
-   public var orgAlpha:Float = 0.75;
-   public var orgAntialiasing:Bool = true; 
-
     public var K1:FlxButton;
     public var K2:FlxButton;
     public var K3:FlxButton;
@@ -47,14 +44,6 @@ class Hitbox extends FlxSpriteGroup
         hitbox = new FlxSpriteGroup();
         hitbox.scrollFactor.set();
 
-        orgAlpha = alphaAlt;
-	orgAntialiasing = antialiasingAlt;
-
-        var hitbox_hint:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/hitbox_hint'));
-		hitbox_hint.antialiasing = orgAntialiasing;
-		hitbox_hint.alpha = orgAlpha;
-		add(hitbox_hint);
-
         K1 = new FlxButton(0, 0);
         K2 = new FlxButton(0, 0);
         K3 = new FlxButton(0, 0);
@@ -64,6 +53,10 @@ class Hitbox extends FlxSpriteGroup
         K7 = new FlxButton(0, 0);
         K8 = new FlxButton(0, 0);
         K9 = new FlxButton(0, 0);
+
+        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
+        hitbox_hint.alpha = 0.75;
+        add(hitbox_hint);
 
         switch (type) 
         {
