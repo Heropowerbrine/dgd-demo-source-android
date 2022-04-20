@@ -33,6 +33,7 @@ class MusicBeatState extends FlxUIState
 	
 	#if android
 	var _virtualpad:FlxVirtualPad;
+	var _hitbox:Hitbox;
 
 	var trackedinputs:Array<FlxActionInput> = [];
 
@@ -56,7 +57,6 @@ class MusicBeatState extends FlxUIState
 
 	#if android
 	public function addHitbox(mania:Int) {
-		var _hitbox:Hitbox;
 		var curhitbox:HitboxType = DEFAULT;
 
 		switch (mania){
