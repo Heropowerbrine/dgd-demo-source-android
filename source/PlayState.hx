@@ -69,8 +69,6 @@ class PlayState extends MusicBeatState
         ['Godly!!', 1] //The value on this one isnt used actually, since Perfect is always "1"
 	]; 
 	
-	var _hitbox:Hitbox;
-
 	public var sicks:Int = 0;
 	public var goods:Int = 0;
 	public var bads:Int = 0;
