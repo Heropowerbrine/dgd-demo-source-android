@@ -24,6 +24,9 @@ class Hitbox extends FlxSpriteGroup
     
     public var array:Array<FlxButton> = [];
 
+   public var orgAlpha:Float = 0.75;
+   public var orgAntialiasing:Bool = true; 
+
     public var K1:FlxButton;
     public var K2:FlxButton;
     public var K3:FlxButton;
