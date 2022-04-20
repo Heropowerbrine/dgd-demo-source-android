@@ -991,10 +991,6 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 		
 		addHitbox(mania);
-				
-		if (SONG.song.toLowerCase() == 'god-eater') {
-		    addVirtualPad(UP_DOWN, NONE);
-		    _virtualpad.visible = false;
 		}
 
 		// if (SONG.song == 'South')
@@ -1640,8 +1636,6 @@ class PlayState extends MusicBeatState
 	public function startCountdown():Void
 	{
 		_hitbox.visible = true;
-	    if (SONG.song.toLowerCase() == 'god-eater') {
-		    _virtualpad.visible = true;
 		}
 		if(startedCountdown) {
 			return;
