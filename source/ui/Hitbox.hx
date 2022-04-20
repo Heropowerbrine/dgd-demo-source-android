@@ -44,9 +44,10 @@ class Hitbox extends FlxSpriteGroup
         hitbox = new FlxSpriteGroup();
         hitbox.scrollFactor.set();
         
-        var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
-        hitbox_hint.alpha = 0.75;
-        add(hitbox_hint);
+        var hitbox_hint:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/hitbox_hint'));
+		hitbox_hint.antialiasing = orgAntialiasing;
+		hitbox_hint.alpha = orgAlpha;
+		add(hitbox_hint);
 
         K1 = new FlxButton(0, 0);
         K2 = new FlxButton(0, 0);
