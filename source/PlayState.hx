@@ -991,6 +991,7 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 		
 		addHitbox(mania);
+
 		}
 
 		// if (SONG.song == 'South')
