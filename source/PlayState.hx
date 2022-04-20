@@ -5774,15 +5774,6 @@ class PlayState extends MusicBeatState
 					{
 					        endSong();
 			                }
-                                        #if desktop
-					var video:MP4Handler = new MP4Handler();
-
-					video.playMP4(Paths.video('zoinks'));
-					video.finishCallback = function()
-					{
-						endSong();
-					}
-                                        #end
 			}
 			if (cs_time > 220)
 			{
