@@ -25,8 +25,8 @@ class CreditsState extends MusicBeatState
 
 	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
 		['Android Port'],
-		['Heropowerbrine','Hero','Main Android Porter(if you didn't download this from my github it might be stolen)','https://github.com/Heropowerbrine', 0xFF007619],
-		['Saw (M.A. Jigsaw)','saw','Android extra keys code, hitboxes','https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 0xFFFF9E00],
+		['Heropowerbrine','Hero','Main Android Porter(if you didnt download this from my github it might be stolen)','https://github.com/Heropowerbrine', 0xFF007619],
+		['Saw (M.A. Jigsaw)','saw','Android extra keys code, hitboxes, video code','https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 0xFFFF9E00],
 		['Demigod Duel'],
 		['jacoborwhatev1', 'jacob', 'Director', 'https://www.youtube.com/channel/UCInyrca4g5NvfejQnexfA2w', 0xFF580183],
 		['Musicians'],
